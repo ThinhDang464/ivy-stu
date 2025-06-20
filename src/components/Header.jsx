@@ -72,14 +72,6 @@ const Header = () => {
           >
             (+84) 707 126 802
           </a>
-          <div className="mt-13 text-center">
-            <p className="text-gray-300 text-[1.1vw] font-semibold">
-              Please click
-            </p>
-            <p className="text-gray-300 text-[1.1vw] font-semibold leading-[1.2]">
-              to enter full screen
-            </p>
-          </div>
         </div>
       </header>
       {/* Gallery Section - Positioned at bottom */}
