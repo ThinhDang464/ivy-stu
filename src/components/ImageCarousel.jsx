@@ -3,6 +3,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "react-router-dom";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 
 // It's cleaner to manage your images in an array
 const images = [
@@ -18,10 +19,14 @@ const ImageCarousel = () => {
   // Embla's main hook. It gives us a ref to attach to our carousel viewport.
   // We can pass options here. We'll set loop to true.
   // Autoplay is off by default, so we don't need to configure that.
-  const [emblaRef] = useEmblaCarousel({
-    loop: false,
-    align: "start", // Aligns slides to the start of the container
-  });
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: false,
+      align: "start", // Aligns slides to the start of the container
+      containScroll: "trimSnaps",
+    },
+    [WheelGesturesPlugin()] //scroll with laptop touchpad + mouse wheel
+  );
 
   return (
     // The main viewport. We attach the ref here.
