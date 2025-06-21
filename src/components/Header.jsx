@@ -4,7 +4,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("work");
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      <header className="w-full px-8 py-5 flex items-start">
+      <header className="w-full px-15 py-5 flex items-start">
         {/* Left side - Name and Navigation */}
         <div className="flex flex-col space-y-10">
           <h1 className="text-2xl font-semibold text-black">Ivy Tran</h1>

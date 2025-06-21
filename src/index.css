@@ -43,10 +43,10 @@ body {
 .embla__container {
   display: flex; /* Lays out slides in a row */
   align-items: flex-end; /* This keeps your bottom-alignment! */
-  gap: 1rem; /* This is equivalent to Tailwind's 'gap-4' */
+  gap: 0rem; /* This is equivalent to Tailwind's 'gap-4' */
 }
 .embla__slide {
   flex: 0 0 25%; /* CRITICAL: Sets each slide to be 25% width, showing 4 at a time */
   min-width: 0;
-  padding-inline: 0.5rem;
+  padding-inline: 1.8rem;
 }
