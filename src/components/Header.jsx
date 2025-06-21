@@ -81,9 +81,7 @@ const Header = () => {
         </section>
       ) : (
         <section className="px-4 pb-8 w-full">
-          <div className="pl-10">
-            <ArchiveCarousel />
-          </div>
+          <ArchiveCarousel />
         </section>
       )}
     </div>
