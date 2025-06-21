@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ImageCarousel from "./ImageCarousel";
+import ArchiveCarousel from "./ArchiveCarousel";
 const Header = () => {
   const [activeSection, setActiveSection] = useState("work");
   return (
@@ -9,24 +10,22 @@ const Header = () => {
         <div className="flex flex-col space-y-10">
           <h1 className="text-2xl font-semibold text-black">Ivy Tran</h1>
           <nav className="flex flex-col space-y-1">
-            <a
+            <p
               onClick={() => setActiveSection("work")}
-              href="#work"
               className={`${
                 activeSection === "work" ? "text-black" : "text-gray-400"
-              } font-semibold leading-none text-xl`}
+              } font-semibold leading-none text-xl cursor-pointer`}
             >
               Work Featured
-            </a>
-            <a
+            </p>
+            <p
               onClick={() => setActiveSection("archives")}
-              href="#archives"
               className={`${
                 activeSection === "archives" ? "text-black" : "text-gray-300"
-              } font-semibold leading-none text-xl`}
+              } font-semibold leading-none text-xl cursor-pointer`}
             >
               Archives
-            </a>
+            </p>
           </nav>
         </div>
 
@@ -76,9 +75,15 @@ const Header = () => {
       </header>
 
       {/* Gallery Section */}
-      <section className="px-4 pb-8 w-full">
-        <ImageCarousel />
-      </section>
+      {activeSection === "work" ? (
+        <section className="px-4 pb-8 w-full">
+          <ImageCarousel />
+        </section>
+      ) : (
+        <section className="px-4 pb-8 w-full">
+          <ArchiveCarousel />
+        </section>
+      )}
     </div>
   );
 };
