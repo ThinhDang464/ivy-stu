@@ -2,15 +2,16 @@
 
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { Link } from "react-router-dom";
 
 // It's cleaner to manage your images in an array
 const images = [
-  { src: "/project1.png", alt: "Nookscape Interior Studio" },
-  { src: "/project2.png", alt: "Love Now Never Later" },
-  { src: "/project3.png", alt: "Love Now Never Later" },
-  { src: "/project4.png", alt: "Melodicity Music App" },
-  { src: "/project6.png", alt: "Project Five" },
-  { src: "/project5.png", alt: "Project Six" },
+  { id: "project1", src: "/project1.png", alt: "Nookscape Interior Studio" },
+  { id: "project2", src: "/project2.png", alt: "Love Now Never Later" },
+  { id: "project3", src: "/project3.png", alt: "Love Now Never Later" },
+  { id: "project4", src: "/project4.png", alt: "Melodicity Music App" },
+  { id: "project5", src: "/project6.png", alt: "Project Five" },
+  { id: "project6", src: "/project5.png", alt: "Project Six" },
 ];
 
 const ImageCarousel = () => {
@@ -29,13 +30,15 @@ const ImageCarousel = () => {
       <div className="embla__container">
         {/* We map over the images array to create each slide */}
         {images.map((img, index) => (
-          <div className="embla__slide" key={index}>
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-auto object-cover"
-              draggable="false" // Good practice to prevent ghosting
-            />
+          <div className="embla__slide" key={img.id}>
+            <Link to={`/project/${img.id}`}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-auto object-cover"
+                draggable="false"
+              />
+            </Link>
           </div>
         ))}
       </div>

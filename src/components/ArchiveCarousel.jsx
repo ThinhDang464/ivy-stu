@@ -1,12 +1,13 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { Link } from "react-router-dom";
 
 // It's cleaner to manage your images in an array
 const images = [
-  { src: "/archive1.png", alt: "archive 1" },
-  { src: "/archive2.png", alt: "archive 2" },
-  { src: "/archive3.png", alt: "archive 3" },
-  { src: "/archive4.png", alt: "archive 4" },
+  { id: "archive1", src: "/archive1.png", alt: "archive 1" },
+  { id: "archive2", src: "/archive2.png", alt: "archive 2" },
+  { id: "archive3", src: "/archive3.png", alt: "archive 3" },
+  { id: "archive4", src: "/archive4.png", alt: "archive 4" },
 ];
 
 const ArchiveCarousel = () => {
@@ -25,13 +26,15 @@ const ArchiveCarousel = () => {
       <div className="embla__container">
         {/* We map over the images array to create each slide */}
         {images.map((img, index) => (
-          <div className="embla__slide" key={index}>
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-auto object-cover"
-              draggable="false" // Good practice to prevent ghosting
-            />
+          <div className="embla__slide" key={img.id}>
+            <Link to={`/project/${img.id}`}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-auto object-cover"
+                draggable="false" // Good practice to prevent ghosting
+              />
+            </Link>
           </div>
         ))}
       </div>
