@@ -61,13 +61,13 @@ const Header = () => {
         <div className="flex flex-col items-end ml-auto">
           <a
             href="mailto:ivy.tran3006@gmail.com"
-            className="text-black text-xl font-semibold"
+            className="text-black text-lg font-semibold"
           >
             ivy.tran3006@gmail.com
           </a>
           <a
             href="tel:+84707126802"
-            className="text-black text-xl font-semibold leading-[1.2]"
+            className="text-black text-lg font-semibold leading-[1.2]"
           >
             (+84) 707 126 802
           </a>
