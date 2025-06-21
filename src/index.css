@@ -40,13 +40,20 @@ body {
 .embla:active {
   cursor: grabbing;
 }
+
 .embla__container {
   display: flex; /* Lays out slides in a row */
   align-items: flex-end; /* This keeps your bottom-alignment! */
   gap: 0rem; /* This is equivalent to Tailwind's 'gap-4' */
 }
+
+.embla__slide {
+  padding: 0;
+  margin: 0;
+}
+
 .image-carousel .embla__slide {
-  flex: 0 0 23%; /* Your desired size for the first carousel */
+  flex: 0 0 24%; /* Your desired size for the first carousel */
   min-width: 0;
 }
 

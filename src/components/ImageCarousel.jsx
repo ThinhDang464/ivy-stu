@@ -11,8 +11,8 @@ const images = [
   { id: "project2", src: "/project2.png", alt: "Love Now Never Later" },
   { id: "project3", src: "/project3.png", alt: "Love Now Never Later" },
   { id: "project4", src: "/project4.png", alt: "Melodicity Music App" },
-  { id: "project5", src: "/project6.png", alt: "Project Five" },
-  { id: "project6", src: "/project5.png", alt: "Project Six" },
+  { id: "project5", src: "/project5.png", alt: "Project Five" },
+  { id: "project6", src: "/project6.png", alt: "Project Six" },
 ];
 
 const ImageCarousel = () => {
