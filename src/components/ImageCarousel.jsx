@@ -25,7 +25,7 @@ const ImageCarousel = () => {
       align: "start", // Aligns slides to the start of the container
       containScroll: "trimSnaps",
     },
-    [WheelGesturesPlugin()] //scroll with laptop touchpad + mouse wheel
+    [WheelGesturesPlugin({ forceWheelAxis: "y" })] //scroll with laptop touchpad + mouse wheel
   );
 
   return (
