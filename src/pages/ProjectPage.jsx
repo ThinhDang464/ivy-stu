@@ -52,10 +52,10 @@ const ProjectPage = () => {
             <h1 className="text-2xl font-semibold text-black">
               {project.title}
             </h1>
-            <p className="mt-2 text-xl font-semibold text-gray-300">
+            <p className="mt-2 text-lg font-semibold text-[#BEBEBE]">
               {project.description}
             </p>
-            <div className="mt-4 flex items-center text-xl font-semibold text-gray-300">
+            <div className="mt-4 flex items-center text-lg font-semibold text-[#BEBEBE]">
               <span className="mr-2">&rarr;</span>
               {/* Join the services array into a single string */}
               <p>{project.services.join(", ")}</p>
