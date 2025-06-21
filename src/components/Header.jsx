@@ -13,16 +13,16 @@ const Header = () => {
             <p
               onClick={() => setActiveSection("work")}
               className={`${
-                activeSection === "work" ? "text-black" : "text-gray-400"
-              } font-semibold leading-none text-xl cursor-pointer`}
+                activeSection === "work" ? "text-black" : "text-[#BEBEBE]"
+              } font-semibold leading-none text-lg cursor-pointer`}
             >
               Work Featured
             </p>
             <p
               onClick={() => setActiveSection("archives")}
               className={`${
-                activeSection === "archives" ? "text-black" : "text-gray-300"
-              } font-semibold leading-none text-xl cursor-pointer`}
+                activeSection === "archives" ? "text-black" : "text-[#BEBEBE]"
+              } font-semibold leading-none text-lg cursor-pointer`}
             >
               Archives
             </p>
@@ -31,7 +31,7 @@ const Header = () => {
 
         {/* Middle column - Description */}
         <div className="flex flex-col space-y-4 max-w-md ml-35 mt-1">
-          <p className="text-gray-300 text-xl leading-[1.27] font-semibold">
+          <p className="text-[#BEBEBE] text-lg leading-[1.27] font-semibold">
             HCM City based
             <br />
             Graphic Designer,
@@ -42,7 +42,7 @@ const Header = () => {
             <br />
             brands and individuals.
           </p>
-          <p className="text-gray-300 text-xl font-semibold leading-[1.27]">
+          <p className="text-[#BEBEBE] text-lg font-semibold leading-[1.27]">
             Combining taste and
             <br />
             strategic thinking to solve
