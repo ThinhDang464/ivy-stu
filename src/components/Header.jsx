@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import ImageCarousel from "./ImageCarousel";
 const Header = () => {
   const [activeSection, setActiveSection] = useState("work");
   return (
@@ -14,7 +14,7 @@ const Header = () => {
               href="#work"
               className={`${
                 activeSection === "work" ? "text-black" : "text-gray-400"
-              } font-[550] leading-none text-xl`}
+              } font-semibold leading-none text-xl`}
             >
               Work Featured
             </a>
@@ -23,7 +23,7 @@ const Header = () => {
               href="#archives"
               className={`${
                 activeSection === "archives" ? "text-black" : "text-gray-300"
-              } font-[550] leading-none text-xl`}
+              } font-semibold leading-none text-xl`}
             >
               Archives
             </a>
@@ -31,7 +31,7 @@ const Header = () => {
         </div>
 
         {/* Middle column - Description */}
-        <div className="flex flex-col space-y-4 max-w-md ml-35">
+        <div className="flex flex-col space-y-4 max-w-md ml-35 mt-1">
           <p className="text-gray-300 text-xl leading-[1.27] font-semibold">
             HCM City based
             <br />
@@ -75,38 +75,9 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Gallery Section - Now positioned at bottom via flex */}
-      <section className="px-4 pb-8">
-        <div className="grid grid-cols-4 -space-x-4 items-end">
-          <div className="flex flex-col items-center">
-            <img
-              src="/project1.png"
-              alt="Nookscape Interior Studio"
-              className="w-full h-auto object-cover cursor-pointer"
-            />
-          </div>
-          <div className="flex flex-col items-center cursor-pointer">
-            <img
-              src="/project2.png"
-              alt="Love Now Never Later"
-              className="w-full h-auto object-cover cursor-pointer"
-            />
-          </div>
-          <div className="flex flex-col items-center cursor-pointer">
-            <img
-              src="/project3.png"
-              alt="Love Now Never Later"
-              className="w-full h-auto object-cover cursor-pointer"
-            />
-          </div>
-          <div className="flex flex-col items-center cursor-pointer">
-            <img
-              src="/project4.png"
-              alt="Melodicity Music App"
-              className="w-full h-auto object-cover cursor-pointer"
-            />
-          </div>
-        </div>
+      {/* Gallery Section */}
+      <section className="px-4 pb-8 w-full">
+        <ImageCarousel />
       </section>
     </div>
   );

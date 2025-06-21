@@ -1,6 +1,52 @@
-@import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 @import "tailwindcss";
 
-* {
+/* Define the "55 Roman" weight (500) */
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/NeueHaasDisplayRoman.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Define the "65 Medium" weight (600) */
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/NeueHaasDisplayMediu.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Set the base font for the entire site */
+body {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.embla {
+  overflow: hidden; /* This is the viewport. Hides the overflowing slides. */
+  cursor: grab;
+}
+.embla:active {
+  cursor: grabbing;
+}
+.embla__container {
+  display: flex; /* Lays out slides in a row */
+  align-items: flex-end; /* This keeps your bottom-alignment! */
+  gap: 1rem; /* This is equivalent to Tailwind's 'gap-4' */
+}
+.embla__slide {
+  flex: 0 0 25%; /* CRITICAL: Sets each slide to be 25% width, showing 4 at a time */
+  min-width: 0;
+  padding-inline: 0.5rem;
 }
