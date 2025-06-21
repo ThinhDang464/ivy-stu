@@ -45,8 +45,12 @@ body {
   align-items: flex-end; /* This keeps your bottom-alignment! */
   gap: 0rem; /* This is equivalent to Tailwind's 'gap-4' */
 }
-.embla__slide {
-  flex: 0 0 23%; /* CRITICAL: Sets each slide to be 25% width, showing 4 at a time */
+.image-carousel .embla__slide {
+  flex: 0 0 23%; /* Your desired size for the first carousel */
   min-width: 0;
-  padding-inline: 1.8rem;
+}
+
+.archive-carousel .embla__slide {
+  flex: 0 0 23%; /* Your desired size for the second carousel */
+  min-width: 0;
 }

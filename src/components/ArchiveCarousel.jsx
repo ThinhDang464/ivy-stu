@@ -25,7 +25,7 @@ const ArchiveCarousel = () => {
 
   return (
     // The main viewport. We attach the ref here.
-    <div className="embla" ref={emblaRef}>
+    <div className="embla archive-carousel" ref={emblaRef}>
       {/* The container that holds all the slides */}
       <div className="embla__container">
         {/* We map over the images array to create each slide */}
