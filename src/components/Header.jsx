@@ -1,8 +1,19 @@
 import { useState } from "react";
 import ImageCarousel from "./ImageCarousel";
 import ArchiveCarousel from "./ArchiveCarousel";
+import { useSearchParams } from "react-router-dom";
 const Header = () => {
-  const [activeSection, setActiveSection] = useState("work");
+  // 2. Replace useState with useSearchParams
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // This function will now update the URL instead of local state, in url something like: /?section=archives
+  const handleSectionChange = (sectionName) => {
+    setSearchParams({ section: sectionName }); //passing obj as arg
+  };
+
+  // 3. Read the active section from the URL, defaulting to 'work'
+  const activeSection = searchParams.get("section") || "work";
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <header className="w-full px-8 py-5 flex items-start">
@@ -11,7 +22,7 @@ const Header = () => {
           <h1 className="text-2xl font-semibold text-black">Ivy Tran</h1>
           <nav className="flex flex-col space-y-1">
             <p
-              onClick={() => setActiveSection("work")}
+              onClick={() => handleSectionChange("work")}
               className={`${
                 activeSection === "work" ? "text-black" : "text-[#BEBEBE]"
               } font-semibold leading-none text-lg cursor-pointer`}
@@ -19,7 +30,7 @@ const Header = () => {
               Work Featured
             </p>
             <p
-              onClick={() => setActiveSection("archives")}
+              onClick={() => handleSectionChange("archives")}
               className={`${
                 activeSection === "archives" ? "text-black" : "text-[#BEBEBE]"
               } font-semibold leading-none text-lg cursor-pointer`}
