@@ -74,16 +74,26 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Gallery Section */}
-      {activeSection === "work" ? (
-        <section className="px-4 pb-8 w-full">
-          <ImageCarousel />
-        </section>
-      ) : (
-        <section className="px-4 pb-8 w-full">
-          <ArchiveCarousel />
-        </section>
-      )}
+      <div className="relative mb-2">
+        {/* Gallery Section */}
+        {activeSection === "work" ? (
+          <section className="px-4 w-full">
+            <ImageCarousel />
+          </section>
+        ) : (
+          <section className="px-4 w-full">
+            <ArchiveCarousel />
+          </section>
+        )}
+
+        {/* 
+          This paragraph is now positioned relative to the gallery above it,
+          not relative to the bottom of the screen.
+        */}
+        <p className="absolute bottom-0.5 left-8 text-sm text-[#BEBEBE] font-medium">
+          Scroll to view more
+        </p>
+      </div>
     </div>
   );
 };
