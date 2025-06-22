@@ -15,8 +15,8 @@ const Header = () => {
   const activeSection = searchParams.get("section") || "work";
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
-      <header className="w-full px-8 py-5 flex items-start">
+    <div className="h-screen flex flex-col justify-between">
+      <header className="w-full px-8 pt-2 flex items-start">
         {/* Left side - Name and Navigation */}
         <div className="flex flex-col space-y-12">
           <h1 className="text-2xl font-semibold text-black">Ivy Tran</h1>
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
 
         {/* Middle column - Description */}
-        <div className="flex flex-col space-y-4 max-w-md ml-35 mt-1">
+        <div className="flex flex-col space-y-4 max-w-md ml-35 mt-2">
           <p className="text-[#BEBEBE] text-lg leading-[1.27] font-semibold">
             HCM City based
             <br />
@@ -85,25 +85,23 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="relative mb-2">
+      <div className="relative">
         {/* Gallery Section */}
         {activeSection === "work" ? (
           <section className="px-4 w-full">
             <ImageCarousel />
+            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-sm text-[#BEBEBE] font-medium">
+              Scroll to view more
+            </p>
           </section>
         ) : (
           <section className="px-4 w-full">
             <ArchiveCarousel />
+            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-sm text-[#BEBEBE] font-medium">
+              Scroll to view more
+            </p>
           </section>
         )}
-
-        {/* 
-          This paragraph is now positioned relative to the gallery above it,
-          not relative to the bottom of the screen.
-        */}
-        <p className="absolute bottom-0.5 left-8 text-sm text-[#BEBEBE] font-medium">
-          Scroll to view more
-        </p>
       </div>
     </div>
   );
