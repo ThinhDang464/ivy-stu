@@ -221,7 +221,7 @@ const ProjectPage = () => {
           >
             <button
               onClick={() => setSelectedEmbed(null)}
-              className="absolute top-2 right-2 z-10 bg-black bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-90 text-xl font-bold"
+              className="absolute top-2 right-2 z-10 bg-black bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-90 text-xl font-bold cursor-pointer"
             >
               ×
             </button>
