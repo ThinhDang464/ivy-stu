@@ -106,14 +106,14 @@ const Header = () => {
         {activeSection === "work" ? (
           <section className="px-4 w-full">
             <ImageCarousel />
-            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-xs text-[#BEBEBE] font-medium">
+            <p className="absolute top-[calc(100%-1.3rem)] left-8 text-[0.68rem] text-[#BEBEBE] font-medium">
               Scroll to view more
             </p>
           </section>
         ) : (
           <section className="px-4 w-full">
             <ArchiveCarousel />
-            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-xs text-[#BEBEBE] font-medium">
+            <p className="absolute top-[calc(100%-1.3rem)] left-8 text-[0.68rem] text-[#BEBEBE] font-medium">
               Scroll to view more
             </p>
           </section>

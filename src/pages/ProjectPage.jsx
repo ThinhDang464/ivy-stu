@@ -5,7 +5,7 @@ const projectsData = [
     id: "project1",
     title: "Nookscape",
     description:
-      "Shaping a warm, nature-inspired brand identity for furniture and interiors studio Nookscape. Helping the brand connect with its audience through soft minimalism and thoughtful design rooted in natural textures and calm living.",
+      "Shaping a warm, nature-inspired brand identity for furniture and interiors studio Nookscape.\nHelping the brand connect with its audience through soft minimalism and thoughtful design \nrooted in natural textures and calm living.",
     services: ["Branding", "Digital", "Print"],
     imageUrl: ["/projects/Nookscape-scroll.png"],
   },
@@ -21,7 +21,7 @@ const projectsData = [
     id: "project3",
     title: "Love Now Never Later",
     description:
-      "Branding an immersive exhibition through emotional storytelling and bold visuals. Helping connect with Gen Z by exploring love, regret, and forgiveness, with a visual identity and promo suite that encourages reflection and engagement.",
+      "Branding an immersive exhibition through emotional storytelling and bold visuals. \nHelping connect with Gen Z by exploring love, regret, and forgiveness, with a visual identity \nand promo suite that encourages reflection and engagement.",
     services: ["Branding", "Digital", "Print", "Concept Development"],
     imageUrl: ["/projects/Love-scroll.png"],
   },
@@ -29,7 +29,7 @@ const projectsData = [
     id: "project4",
     title: "Melopidity",
     description:
-      "Prototyping a music streaming platform that challenges algorithm-driven listening with bold, user-first design. Helping break the filter bubble and connect Gen Z music lovers to diverse sounds through intuitive discovery and culturally rich exploration.",
+      "Prototyping a music streaming platform that challenges algorithm-driven listening with bold, \nuser-first design. Helping break the filter bubble and connect Gen Z music lovers to diverse \nsounds through intuitive discovery and culturally rich exploration.",
     services: ["UX/UI", "Illustration", "Prototyping"],
     imageUrl: ["/projects/Melopidity-scroll.png"],
   },
@@ -37,7 +37,7 @@ const projectsData = [
     id: "project5",
     title: "Spring Garden",
     description:
-      "Bringing a seasonal collaboration to life through vibrant branding and visual storytelling. Helping a partnership between Rosie Finch and Sweet Lady Jane celebrate spring with a limited-edition menu and floral experience for trend-savvy dessert and flower lovers.",
+      "Bringing a seasonal collaboration to life through vibrant branding and visual storytelling. \nHelping a partnership between Rosie Finch and Sweet Lady Jane celebrate spring with a \nlimited-edition menu and floral experience for trend-savvy dessert and flower lovers.",
     services: ["Branding", "Packaging", "Concept Development"],
     imageUrl: ["/projects/Spring-scroll.png"],
   },
@@ -45,7 +45,7 @@ const projectsData = [
     id: "project6",
     title: "Serenism",
     description:
-      "Creating an experiential brand identity for a public art project by the City of Melbourne. Helping Serenism draw people back to the city with an outdoor labyrinth and visual storytelling that reconnects young adults and art lovers with inner calm in a fast-paced urban world.",
+      "Creating an experiential brand identity for a public art project by the City of Melbourne. \nHelping Serenism draw people back to the city with an outdoor labyrinth and visual storytelling \nthat reconnects young adults and art lovers with inner calm in a fast-paced urban world.",
     services: ["Branding", "Print", "Prototyping", "Concept Development"],
     imageUrl: ["/projects/Serenism-scroll.png"],
   },
@@ -64,7 +64,7 @@ const projectsData = [
   {
     id: "archive3",
     title: "Motion",
-    services: ["[Click on text to watch]"],
+    services: [],
     imageUrl: [
       "/projects/app.png",
       "/projects/katchup.png",
@@ -91,7 +91,7 @@ const ProjectPage = () => {
   // Find the entire project object now, not just the image URL
   const project = projectsData.find((p) => p.id === projectId);
 
-  //State for video modal manage
+  //State for video modal manage, store iframe code
   const [selectedEmbed, setSelectedEmbed] = useState(null);
 
   //Determine the correct "Back" URL based on the project ID
@@ -111,7 +111,7 @@ const ProjectPage = () => {
     );
   }
 
-  //Helper function to handle image click
+  //Helper function to handle image click on archive3 different images
   const handleImageClick = (index) => {
     //only open modal if project is archive3
     if (project.id === "archive3" && project.embededCodes) {
@@ -119,7 +119,7 @@ const ProjectPage = () => {
     }
   };
 
-  // Enhanced vertical video detection
+  // Enhanced vertical video detection, check if there is iframe and contain shorts in the url
   const isVerticalVideo =
     selectedEmbed &&
     (selectedEmbed.includes("/shorts/") ||
@@ -147,7 +147,7 @@ const ProjectPage = () => {
               The `project.description && ...` part handles this.
             */}
             {project.description && (
-              <p className="mt-2 text-lg font-semibold text-[#BEBEBE]">
+              <p className="mt-2 text-lg font-semibold text-[#BEBEBE] whitespace-pre-line">
                 {project.description}
               </p>
             )}
