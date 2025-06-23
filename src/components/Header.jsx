@@ -42,30 +42,46 @@ const Header = () => {
 
         {/* Middle column - Description */}
         <div className="flex flex-col space-y-4 max-w-md ml-35 mt-2">
-          <p className="text-[#BEBEBE] text-lg leading-[1.27] font-semibold">
-            HCM City based
-            <br />
-            Graphic Designer,
-            <br />
-            specializing in branding,
-            <br />
-            print and digital design for
-            <br />
-            brands and individuals.
-          </p>
-          <p className="text-[#BEBEBE] text-lg font-semibold leading-[1.27]">
-            Combining taste and
-            <br />
-            strategic thinking to solve
-            <br />
-            business problems and
-            <br />
-            help create meaningful
-            <br />
-            engagements with
-            <br />
-            their audiences.
-          </p>
+          {activeSection === "work" ? (
+            <>
+              <p className="text-[#BEBEBE] text-lg leading-[1.27] font-semibold">
+                HCM City based
+                <br />
+                Graphic Designer,
+                <br />
+                specializing in branding,
+                <br />
+                print and digital design for
+                <br />
+                brands and individuals.
+              </p>
+              <p className="text-[#BEBEBE] text-lg font-semibold leading-[1.27]">
+                Combining taste and
+                <br />
+                strategic thinking to solve
+                <br />
+                business problems and
+                <br />
+                help create meaningful
+                <br />
+                engagements with
+                <br />
+                their audiences.
+              </p>
+            </>
+          ) : (
+            <p className="text-[#BEBEBE] text-lg leading-[1.27] font-semibold">
+              My collection of other
+              <br />
+              designs, explorations,
+              <br />
+              rejected versions
+              <br />
+              or anything that I coudn't
+              <br />
+              find a place to show...
+            </p>
+          )}
         </div>
 
         {/* Right side - Contact Info */}
@@ -90,14 +106,14 @@ const Header = () => {
         {activeSection === "work" ? (
           <section className="px-4 w-full">
             <ImageCarousel />
-            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-sm text-[#BEBEBE] font-medium">
+            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-xs text-[#BEBEBE] font-medium">
               Scroll to view more
             </p>
           </section>
         ) : (
           <section className="px-4 w-full">
             <ArchiveCarousel />
-            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-sm text-[#BEBEBE] font-medium">
+            <p className="absolute top-[calc(100%-1.4rem)] left-8 text-xs text-[#BEBEBE] font-medium">
               Scroll to view more
             </p>
           </section>

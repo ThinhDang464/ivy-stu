@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 const projectsData = [
   {
     id: "project1",
@@ -70,11 +71,11 @@ const projectsData = [
       "/projects/footscray.png",
       "/projects/plat.png",
     ],
-    imageLinks: [
-      "https://drive.google.com/file/d/1SAfuwd7keKmXpCtxlDwN_hdzE1lheb2C/view",
-      "https://drive.google.com/file/d/1zrojSRKLVD2LlNUP-EJSVL6ETrAtlTPD/view",
-      "https://drive.google.com/file/d/1Jbpnc2SgeDy-ku0RbqBX9QHCYGddzfgD/view",
-      "https://drive.google.com/file/d/1dAr6GjTTvHrXKJB4ZJd94SLqZu-Aog_i/view",
+    embededCodes: [
+      '<iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/HjLIlTd3Ty0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      '<iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/qi_wJOLUEWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      '<iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/MGiykEpLD-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      '<iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/h_VQnaRmDsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     ],
   },
   {
@@ -89,6 +90,9 @@ const ProjectPage = () => {
   const { projectId } = useParams();
   // Find the entire project object now, not just the image URL
   const project = projectsData.find((p) => p.id === projectId);
+
+  //State for video modal manage
+  const [selectedEmbed, setSelectedEmbed] = useState(null);
 
   //Determine the correct "Back" URL based on the project ID
   const backUrl = project.id.startsWith("archive") ? "/?section=archives" : "/";
@@ -106,6 +110,21 @@ const ProjectPage = () => {
       </div>
     );
   }
+
+  //Helper function to handle image click
+  const handleImageClick = (index) => {
+    //only open modal if project is archive3
+    if (project.id === "archive3" && project.embededCodes) {
+      setSelectedEmbed(project.embededCodes[index]);
+    }
+  };
+
+  // Enhanced vertical video detection
+  const isVerticalVideo =
+    selectedEmbed &&
+    (selectedEmbed.includes("/shorts/") ||
+      selectedEmbed.includes("shorts") ||
+      selectedEmbed.includes("aspect-ratio: 9/16"));
 
   return (
     <div className="bg-white">
@@ -142,20 +161,14 @@ const ProjectPage = () => {
                   MODIFIED: This span will now only render if the ID is NOT 'archive3'.
                 */}
                 {project.id !== "archive3" && (
-                  <span className="mr-2">&rarr;</span>
+                  <img src="/Arrow.png" alt="Arrow" className="mr-2 w-6" />
                 )}
                 <p>{project.services.join(", ")}</p>
               </div>
             )}
           </div>
           {/* Right Column: Back Link */}
-          <div
-            className={
-              project.description && project.services?.join("").length > 0
-                ? "mt-30" // Use this class if description AND services exist
-                : "mt-10" // Use this class otherwise
-            }
-          >
+          <div>
             <Link to={backUrl} className="text-2xl font-semibold text-black">
               [Back]
             </Link>
@@ -173,19 +186,17 @@ const ProjectPage = () => {
               {/*when there is more item telling CSS to start new row with flex wrap */}
               {project.imageUrl.map((url, index) => (
                 <div key={index} className="w-[calc(25%-0.75rem)]">
-                  {" "}
                   {/* 4 columns with gap */}
-                  <a
-                    href={project.imageLinks ? project.imageLinks[index] : "#"}
-                    target="_blank" //open in new tab
-                    rel="noopener noreferrer" //security practice
+                  <button
+                    onClick={() => handleImageClick(index)}
+                    className="w-full h-auto cursor-pointer"
                   >
                     <img
                       src={url}
                       alt={`${project.title} - image ${index + 1}`}
-                      className="w-full h-auto object-cover cursor-pointer"
+                      className="w-full h-auto object-cover"
                     />
-                  </a>
+                  </button>
                 </div>
               ))}
             </div>
@@ -198,6 +209,41 @@ const ProjectPage = () => {
           )}
         </div>
       </main>
+
+      {selectedEmbed && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedEmbed(null)}
+        >
+          <div
+            className="relative bg-white rounded-lg overflow-hidden w-full max-w-4xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedEmbed(null)}
+              className="absolute top-2 right-2 z-10 bg-black bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-90 text-xl font-bold"
+            >
+              ×
+            </button>
+
+            <div
+              className={`
+          relative w-full
+          ${
+            isVerticalVideo
+              ? "aspect-[9/16] max-h-[85vh] mx-auto max-w-md"
+              : "aspect-[16/9]"
+          }
+        `}
+            >
+              <div
+                className="absolute inset-0"
+                dangerouslySetInnerHTML={{ __html: selectedEmbed }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

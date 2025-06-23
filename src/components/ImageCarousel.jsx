@@ -40,7 +40,7 @@ const ImageCarousel = () => {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
                 draggable="false"
               />
             </Link>

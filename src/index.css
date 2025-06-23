@@ -45,6 +45,7 @@ body {
 .embla__container {
   display: flex; /* Lays out slides in a row */
   align-items: flex-end; /* This keeps your bottom-alignment! */
+  gap: 0;
 }
 
 .embla__slide img {
