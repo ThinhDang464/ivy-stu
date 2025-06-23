@@ -210,14 +210,14 @@ const ProjectPage = () => {
         </div>
       </main>
 
-      {selectedEmbed && (
-        <div
+      {selectedEmbed && ( //only shows when theres selectedEmbed
+        <div //backdrop overlay -> dark coverlay cover whole screen -> click - close modal with set null
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
           onClick={() => setSelectedEmbed(null)}
         >
-          <div
-            className="relative bg-white rounded-lg overflow-hidden w-full max-w-4xl"
-            onClick={(e) => e.stopPropagation()}
+          <div //modal content container
+            className="relative bg-black rounded-lg overflow-hidden w-full max-w-5xl"
+            onClick={(e) => e.stopPropagation()} //prevent modal from closing when click the video itself
           >
             <button
               onClick={() => setSelectedEmbed(null)}
@@ -226,7 +226,7 @@ const ProjectPage = () => {
               ×
             </button>
 
-            <div
+            <div //modal that shows the video
               className={`
           relative w-full
           ${
@@ -238,7 +238,7 @@ const ProjectPage = () => {
             >
               <div
                 className="absolute inset-0"
-                dangerouslySetInnerHTML={{ __html: selectedEmbed }}
+                dangerouslySetInnerHTML={{ __html: selectedEmbed }} //this shows the video
               />
             </div>
           </div>
